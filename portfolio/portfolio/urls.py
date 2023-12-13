@@ -21,7 +21,14 @@ from django.urls import path, include
 from django.conf import settings
 from django.conf.urls.static import static
 
+from main.views import pageNotFound, ServerError, AccessBan, SearchError
+
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('main.urls'))
-] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
+]
+
+handler404 = pageNotFound
+handler500 = ServerError
+handler403 = AccessBan
+handler400 = SearchError

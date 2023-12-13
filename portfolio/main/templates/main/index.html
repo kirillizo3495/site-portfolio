@@ -1,34 +1,25 @@
 {% extends 'main/baze.html' %}
 {% block title%}
-    Главная страница
+    {{title}}
 {% endblock %}
 {% block content%}
-     <nav class="navbar">
-        <div class="nav">
-            <a href="" class="nav-button">portfolio</a>
-            <a href="{% url 'about' %}" class="nav-button">about me</a>
-            <a href="" class="nav-button">contacts</a>
-        </div>
-        <div class="logo">
-            <a href="{% url 'home' %}">portfolio</a>
-        </div>
-    </nav>
-    <header class="justify-center">
-        <div class="content col-5">
-            <h1>about me</h1>
-            <p>Lorem ipsum dolor, sit amet consectetur
-                adipisicing elit. Adipisci nihil excepturi
-                quaerat error iste. Blanditiis v
-                itae inventore culpa, ullam rem nulla commodi
-                labore repudiandae consectetur?
-            </p>
-        </div>
-        <div class="">
-            <div class="img-content justify-center">
-                <img src="static/main/img/Uj6Yd91AOxk.jpg" alt="photo">
+    <div class="header-bg">
+        <header class="justify-center">
+            <div class="content col-5">
+                <h1>обо мне</h1>
+                <p>Здраствуйте ,меня зовут Руслан я студент.
+                   В 2022 году поступил в Брянский Государственный Инженерно-Технический Университет (БГИТУ)
+                   в Инженерно-экономический институт по направлению Программная инженерия сокращённо ПИ
+                   на момент 13 декабря 2023 года я нахожусь на 2 курсе и пишу этот сайт в качестве своей курсовой работы.
+                </p>
             </div>
-        </div>
-    </header>
+            <div class="">
+                <div class="img-content justify-center">
+                    <img src="static/main/img/Uj6Yd91AOxk.jpg" alt="photo">
+                </div>
+            </div>
+        </header>
+    </div>
     <main class="justify-center">
         <div class="">
             <div class="img-content justify-center">
@@ -37,25 +28,15 @@
         </div>
         <div class="content col-5">
             <h1>portfolio</h1>
-            <p>Lorem ipsum dolor, sit amet consectetur
-                adipisicing elit. Adipisci nihil excepturi
-                quaerat error iste. Blanditiis v
-                itae inventore culpa, ullam rem nulla commodi
-                labore repudiandae consectetur?Lorem ipsum dolor, sit amet consectetur
-                adipisicing elit. Adipisci nihil excepturi
-                quaerat error iste. Blanditiis v
-                itae inventore culpa, ullam rem nulla commodi
-                labore repudiandae consectetur?Lorem ipsum dolor, sit amet consectetur
-                adipisicing elit. Adipisci nihil excepturi
-                quaerat error iste. Blanditiis v
-                itae inventore culpa, ullam rem nulla commodi
-                labore repudiandae consectetur?
-                Lorem ipsum dolor, sit amet consectetur
-                adipisicing elit. Adipisci nihil excepturi
-                quaerat error iste. Blanditiis v
-                itae inventore culpa, ullam rem nulla commodi
-                labore repudiandae consectetur?
+            <p ><h5 style="text-align:center;">Тут должны выводится карточки с катигориями</h5>
             </p>
+            <div class="row">
+                <div class="col-4">
+                    {% for el in card%}
+                    <p>{{ el }}</p>
+                    {% endfor %}
+                </div>
+            </div>
         </div>
 
     </main>
