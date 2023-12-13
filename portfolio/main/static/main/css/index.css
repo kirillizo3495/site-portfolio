@@ -16,7 +16,7 @@ body{
     background: var(--g);
     line-height: 1.2;
     color: var(--b);
-    
+
 }
 a{
     text-decoration: none;
@@ -51,8 +51,8 @@ nav{
     border-radius: 10px;
 }
 .nav-button:hover{
-    color: #ffffff;
-    background: black;
+    color: var(--d-r);
+    background: var(--r);
 }
 
 .logo{
@@ -146,4 +146,16 @@ footer{
 .logo-footer:hover {
   box-shadow: 0 0 25px var(--);
   border-radius: 10%;
+}
+.comment {
+      background-color: #f2f2f2;
+      padding: 10px;
+      margin-bottom: 10px;
+      border-radius: 5px;
+    }
+section{
+    background-color:var(--r);
+    color:var(--d-r)
+    padding-bottom:20px;
+
 }

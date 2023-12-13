@@ -1,0 +1,21 @@
+{% extends 'main/baze.html' %}
+{% block title%}
+    {{title}}
+{% endblock %}
+{% block content%}
+<section class="justify-center row">
+    <div class="col-6">
+    <form id="comment-form" method="post">
+        {% csrf_token %}
+        {{form.username}}<br>
+        {{form.comment}}<br>
+        {{form.date}}<br>
+        <span>{{error}}</span>
+        <button type="submit" class="btn btn-primary">Добавить</button>
+        </form>
+        </div>
+    </div>
+
+</section>
+
+{% endblock %}
