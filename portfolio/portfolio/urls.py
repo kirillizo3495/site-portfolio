@@ -25,8 +25,11 @@ from main.views import pageNotFound, ServerError, AccessBan, SearchError
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+
     path('', include('main.urls'))
 ]
+
+
 
 handler404 = pageNotFound
 handler500 = ServerError

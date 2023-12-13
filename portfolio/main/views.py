@@ -25,3 +25,4 @@ def index(request) :
 
 def about(request) :
     return render(request, 'main/about.html', {'title': 'Про нас'})
+
