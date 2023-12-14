@@ -8,7 +8,7 @@ from .forms import CommentsForm
 
 
 def create(request):
-    error =''
+    error = ''
     if request.method == 'POST':
         form = CommentsForm(request.POST)
         if form.is_valid():
@@ -40,11 +40,13 @@ def SearchError(request, exception):
 def index(request) :
 
     comments = Comments.objects.all()
+    post = Post.objects.all()
 
     data = {
         'title': 'Главная страница',
         'card': ['категория', 'текст', 'вывод'],
         'comments': comments,
+        'post': post,
     }
     return render(request, 'main/index.html', {'data': data})
 

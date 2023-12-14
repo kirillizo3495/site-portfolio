@@ -50,6 +50,16 @@ nav{
     border: 2px solid var(--b);
     border-radius: 10px;
 }
+.comment-button{
+    color: var(--b);
+    padding: 12px 24px;
+    border: 2px solid var(--b);
+    border-radius: 10px;
+}
+.comment-button:hover{
+    color: var(--d-r);
+    background: var(--r);
+}
 .nav-button:hover{
     color: var(--d-r);
     background: var(--r);
@@ -156,6 +166,6 @@ footer{
 section{
     background-color:var(--r);
     color:var(--d-r)
-    padding-bottom:20px;
+    padding-bottom:50px;
 
 }
