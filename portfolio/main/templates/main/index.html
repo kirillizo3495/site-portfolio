@@ -3,132 +3,56 @@
     {{title}}
 {% endblock %}
 {% block content%}
-    <div class="header-bg">
-        <header class="justify-center">
-            <div class="content col-5">
-                <h1>обо мне</h1>
-                <p>Здраствуйте ,меня зовут Руслан я студент.
-                   В 2022 году поступил в Брянский Государственный Инженерно-Технический Университет (БГИТУ)
-                   в Инженерно-экономический институт по направлению Программная инженерия сокращённо ПИ
-                   на момент 13 декабря 2023 года я нахожусь на 2 курсе и пишу этот сайт в качестве своей курсовой работы.
-                </p>
-            </div>
-            <div class="">
-                <div class="img-content justify-center">
-                    <img src="static/main/img/Uj6Yd91AOxk.jpg" alt="photo">
-                </div>
-            </div>
-        </header>
-    </div>
-    <main class="justify-center">
-        <div class="">
-            <div class="img-content justify-center">
-                <img src="static/main/img/Uj6Yd91AOxk.jpg" alt="photo">
+
+  <div class="container">
+    <div class="row justify-content-between">
+        <div class="col-7">
+            <h1>Welcome to my portfolio</h1>
+            <p>This is where I showcase my work and projects.</p>
+        </div>
+        <div class="col-5">
+            <div class="container justify-content-between ">
+                <img src="static/main/img/1.jpg" alt="">
             </div>
         </div>
-        <div class="content col-5">
-            <h1>portfolio</h1>
-            <p >
-                <h5 style="text-align:center;">Тут должны выводится посты из бд</h5>
-            </p>
-            <div class="row container ">
+    </div>
+    <div class="container mt-3">
+        <div class="row justify-content-between">
 
-                    {% for el in data.post%}
-                    <div class="col-4">
-                        <div class="bg-light ">
-                            <div class="row">
-                    <h1>{{ el.title }}</h1>
-                    <p>{{ el.text }}</p>
 
-                            </div>
+            <div class="col-5 row justify-content-between">
+                {% for el in data.post%}
+                <div class="col-6">
+                    <div class="card mb-1" style="width: 9rem;">
+                        <div class="card-body">
+                          <h5 class="card-title">{{el.title}}</h5>
+                          <h6 class="card-subtitle mb-2 text-body-secondary text-muted">дата публикации</h6>
+                          <p class="card-text">{{el.text}}</p>
+                          <a href="#" class="card-link">перейти на страницу</a>
+
                         </div>
-                    </div>
-                    {% endfor %}
-
-            </div>
-        </div>
-    </main>
-<section>
-    <div class="container">
-        <div class="row">
-            <div class="col-5">
-                <div class="container">
-                    <h1>Comment Section</h1>
-                    <div id="comments-section">
-                    </div>
+                      </div>
                 </div>
+                {% endfor %}
+            </div>
+
+
+            <div class="col-5">
+            <h2>About Me</h2>
+            <p>Здраствуйте ,меня зовут Руслан я студент.
+                В 2022 году поступил в Брянский Государственный Инженерно-Технический Университет (БГИТУ)
+                в Инженерно-экономический институт по направлению Программная инженерия сокращённо ПИ
+                на момент 13 декабря 2023 года я нахожусь на 2 курсе и пишу этот сайт в качестве своей курсовой работы.
+            </p>
             </div>
         </div>
     </div>
-</section>
-<script>
-    let comments = []; // Array to store all comments
-let commentsPerPage = 3; // Number of comments to display per page
-let currentPage = 1; // Current page number
 
-document.getElementById('comment-form').addEventListener('submit', function(event) {
-  event.preventDefault();
-  let comment = document.getElementById('comment').value;
-  let username = document.getElementById('username').value;
 
-  // Send the comment data to the server using fetch or XMLHttpRequest
-  // Upon successful submission, add the comment to the comments array
-  comments.push({ comment, username, date: new Date() });
+    <h2>Comment</h2>
+    <p>Feel free to leave a comment or feedback on my work. I appreciate any input that can help me improve and grow as a developer.</p>
 
-  // Clear the form fields after submission
-  document.getElementById('comment').value = '';
-  document.getElementById('username').value = '';
+  </div>
 
-  // Render comments on the page
-  renderComments();
-});
 
-function renderComments() {
-  const commentSection = document.getElementById('comments-section');
-  commentSection.innerHTML = ''; // Clear the comments section
-
-  // Calculate the start and end index of comments to display based on the current page
-  const startIndex = (currentPage - 1) * commentsPerPage;
-  const endIndex = startIndex + commentsPerPage;
-
-  // Loop through the comments array and display the comments within the specified range
-  for (let i = startIndex; i < endIndex && i < comments.length; i++) {
-    const newComment = document.createElement('div');
-    newComment.className = 'comment';
-    newComment.innerHTML = '<p>' + comments[i].comment + '</p><small>Posted on: ' + comments[i].date.toLocaleString() + ' by ' + comments[i].username + '</small>';
-    commentSection.appendChild(newComment);
-  }
-
-  // Add pagination buttons
-  const paginationSection = document.createElement('div');
-  paginationSection.className = 'pagination';
-
-  // Add previous page button
-  if (currentPage > 1) {
-    const prevButton = document.createElement('button');
-    prevButton.textContent = 'Previous Page';
-    prevButton.addEventListener('click', function() {
-      currentPage--;
-      renderComments();
-    });
-    paginationSection.appendChild(prevButton);
-  }
-
-  // Add next page button
-  if (endIndex < comments.length) {
-    const nextButton = document.createElement('button');
-    nextButton.textContent = 'Next Page';
-    nextButton.addEventListener('click', function() {
-      currentPage++;
-      renderComments();
-    });
-    paginationSection.appendChild(nextButton);
-  }
-
-  commentSection.appendChild(paginationSection);
-}
-
-// Initial rendering of comments
-renderComments();
-  </script>
 {% endblock %}
