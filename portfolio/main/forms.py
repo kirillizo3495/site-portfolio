@@ -1,26 +1,23 @@
 from django.forms import ModelForm, TextInput, DateTimeInput, Textarea
 
-from .models import Comments
+from .models import Post
 
 
 
 
 
-class CommentsForm(ModelForm):
+class PostForm(ModelForm):
     class Meta:
-        model = Comments
-        fields = {'username', 'comment', 'date'}
-        widgets ={
-            "username": TextInput(attrs={
+        model = Post
+        fields = {'title', 'text'}
+        widgets = {
+            "title": TextInput(attrs={
                 'class': 'form-control',
-                'placeholder': "Пользователь:",
+                'placeholder': "Заголовок:",
             }),
-            "comment": Textarea(attrs={
+            "text": Textarea(attrs={
                 'class': 'form-control',
-                'placeholder': "Комментарий:",
+                'placeholder': "Содержимое:",
             }),
-            "date": DateTimeInput(attrs={
-                'class': 'form-control',
-                'placeholder': "Дата:",
-            }),
+
         }

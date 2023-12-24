@@ -3,17 +3,17 @@
     {{title}}
 {% endblock %}
 {% block content%}
-<section class="justify-center row">
+<section class="justify-center row ">
+    <div class="container ">
     <div class="col-6">
-    <form id="comment-form" method="post">
+    <form id="comment-form" method="post" class="justify-content-between">
         {% csrf_token %}
-        {{form.username}}<br>
-        {{form.comment}}<br>
-        {{form.date}}<br>
+        {{form.title}}<br>
+        {{form.text}}<br>
         <span>{{error}}</span>
-        <button type="submit" class="btn btn-primary">Добавить</button>
+        <button type="submit" class="btn btn-success mb-4" >Добавить</button>
         </form>
-        </div>
+    </div>
     </div>
 
 </section>

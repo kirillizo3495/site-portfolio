@@ -3,9 +3,79 @@
     {{title}}
 {% endblock %}
 {% block content%}
-    <header class="header-bg">
+    <header class="header-bg justify-center ">
+        <div class="container ">
+            <h1 class="text-center">ABOUT ME</h1>
+        </div>
+        <div class="container justify-center">
+            <div class=" row justify-content-center">
+            <div class=" col-6">
+            <h1 class="text-center mb-2">ABOUT ME</h1>
+                <p>
+                    Lorem ipsum, dolor sit amet consectetur adipisicing elit. Sed minus eaque unde dolorem.
+                    Lorem ipsum, dolor sit amet consectetur adipisicing elit. Sed minus eaque unde dolorem.
+                    Lorem ipsum, dolor sit amet consectetur adipisicing elit. Sed minus eaque unde dolorem.
+                    Lorem ipsum, dolor sit amet consectetur adipisicing elit. Sed minus eaque unde dolorem.
+                </p>
+                <div class="row mb-1" style="padding:5px; border-radius: 5px;">
+                    <div class="btn-group">
+                      <a href="#" class="btn btn-success active" aria-current="page">Посмотреть портфолио</a>
+                      <a href="#" class="btn btn-success">Посмотреть резюме</a>
+                    </div>
+                </div>
+
+
+            </div>
+
+
+            <div class="col-6 ">
+                <div class="card text-bg-dark" style="height:100%; width:100%;">
+                  <img src="/static/main/img/img_1.png" class="card-img" alt="..." style=" object-fit: cover; max-height:750px; width: auto;">
+                </div>
+            </div>
+            </div>
+        </div>
 
     </header>
+    <section class="justify-center header-bg mt-5">
+        <div class="container">
+            <h2 class="title">Что я умею делать</h2>
+            <p>
+                Lorem ipsum, dolor sit amet consectetur adipisicing elit. Sed minus eaque unde dolorem.
+                Lorem ipsum, dolor sit amet consectetur adipisicing elit. Sed minus eaque unde dolorem.
+                Lorem ipsum, dolor sit amet consectetur adipisicing elit. Sed minus eaque unde dolorem.
+                Lorem ipsum, dolor sit amet consectetur adipisicing elit. Sed minus eaque unde dolorem.
+                Lorem ipsum, dolor sit amet consectetur adipisicing elit. Sed minus eaque unde dolorem.
+                Lorem ipsum, dolor sit amet consectetur adipisicing elit. Sed minus eaque unde dolorem.
+                Lorem ipsum, dolor sit amet consectetur adipisicing elit. Sed minus eaque unde dolorem.
 
+            </p>
+        </div>
+
+    </section>
+    <section class="justify-center header-bg mt-5">
+        <div class="container">
+            <h2 class="title text-center">Мои работы</h2>
+            <div class="row">
+                {% if data.post%}
+                {% for el in data.post%}
+                <div class="col-3">
+                    <div class="card bg-light-l mb-3">
+                      <img src="/static/main/img/img_2.png" class="card-img-top" alt="...">
+                      <div class="card-body">
+                        <h5 class="card-title">{{el.title}}</h5>
+                        <p class="card-text">{{el.text}}</p>
+                        <p class="card-text"><small class="text-body-secondary">{{el.date}}</small></p>
+                      </div>
+                    </div>
+                </div>
+                {% endfor %}
+                {% else %}
+                <h2 class="mt-5">Работ нет</h2>
+                {% endif %}
+            </div>
+        </div>
+
+    </section>
 {% endblock %}
 {% include 'main/footer.html'%}

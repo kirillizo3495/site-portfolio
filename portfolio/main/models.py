@@ -1,4 +1,5 @@
 from django.db import models
+import datetime
 
 class Post(models.Model):
     title = models.CharField(max_length=100)
@@ -10,7 +11,7 @@ class Post(models.Model):
 class Comments(models.Model):
     username = models.CharField('Пользователь',max_length=100)
     comment = models.TextField('Комментарий')
-    date = models.DateTimeField('дата публикации', default="2023-12-14 22:59:52")
+    date = models.DateTimeField('дата публикации', default=datetime.date.today())
 
 
 # Create your models here.

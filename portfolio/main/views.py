@@ -1,22 +1,22 @@
 
 from django.http import HttpResponse, HttpResponseNotFound, Http404
 from django.shortcuts import render, redirect
-from .models import Post , Comments
+from .models import Post
 from django.shortcuts import render, redirect
-from .forms import CommentsForm
+from .forms import PostForm
 
 
 
 def create(request):
     error = ''
     if request.method == 'POST':
-        form = CommentsForm(request.POST)
+        form = PostForm(request.POST)
         if form.is_valid():
             form.save()
             return redirect('home')
         else:
             error = 'Форма была неверной'
-    form = CommentsForm()
+    form = PostForm()
     data = {
         'form': form,
         'error': error,
@@ -39,17 +39,21 @@ def SearchError(request, exception):
 
 def index(request) :
 
-    comments = Comments.objects.all()
+
     post = Post.objects.all()
 
     data = {
         'title': 'Главная страница',
         'card': ['категория', 'текст', 'вывод'],
-        'comments': comments,
         'post': post,
     }
     return render(request, 'main/index.html', {'data': data})
 
 def about(request) :
-    return render(request, 'main/about.html', {'title': 'Про нас'})
+    post = Post.objects.order_by('-id')[:8]
+    data = {
+        'title': 'Про нас',
+        'post': post,
+    }
+    return render(request, 'main/about.html', {'data': data})
 

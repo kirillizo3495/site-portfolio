@@ -4,7 +4,7 @@
 {% endblock %}
 {% block content%}
 
-  <div class="container">
+  <div class="container adaptive-text">
     <div class="row justify-content-between">
         <div class="col-7">
             <h1>Welcome to my portfolio</h1>
@@ -12,29 +12,33 @@
         </div>
         <div class="col-5">
             <div class="container justify-content-between ">
-                <img src="static/main/img/1.jpg" alt="">
+                <img src="static/main/img/img_1.png" alt="">
             </div>
         </div>
     </div>
-    <div class="container mt-3">
+    <div class="container mt-3 adaptive-text">
         <div class="row justify-content-between">
 
 
-            <div class="col-5 row justify-content-between">
-                {% for el in data.post%}
+            <div class="col-6 row justify-content-between ">
+                {% for el in data.post %}
                 <div class="col-6">
-                    <div class="card mb-1" style="width: 9rem;">
-                        <div class="card-body">
-                          <h5 class="card-title">{{el.title}}</h5>
-                          <h6 class="card-subtitle mb-2 text-body-secondary text-muted">дата публикации</h6>
-                          <p class="card-text">{{el.text}}</p>
-                          <a href="#" class="card-link">перейти на страницу</a>
-
-                        </div>
+                    <div class="card border-success mb-3 card--blur" >
+                      <div class="card-header bg-transparent border-success">{{el.title}}</div>
+                      <div class="card-body text-success">
+                        <h5 class="card-title">дата публикации</h5>
+                        <p class="card-text">{{el.text}}</p>
                       </div>
+                      <div class="card-footer bg-transparent border-success">перейти на страницу</div>
+                    </div>
                 </div>
                 {% endfor %}
             </div>
+
+
+
+
+
 
 
             <div class="col-5">
