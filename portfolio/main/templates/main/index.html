@@ -8,7 +8,10 @@
     <div class="row justify-content-between">
         <div class="col-7">
             <h1>Welcome to my portfolio</h1>
-            <p>This is where I showcase my work and projects.</p>
+            <p>Добро пожаловать на мою страницу портфолио! Здесь вы можете ознакомиться с
+                моими лучшими работами, а также узнать больше о моем опыте и навыках. Я с
+                нетерпением жду возможности сотрудничать с вами и помочь
+                вам воплотить ваши идеи в реальность. Давайте создавать вместе!</p>
         </div>
         <div class="col-5">
             <div class="container justify-content-between ">
@@ -20,18 +23,16 @@
         <div class="row justify-content-between">
 
 
-            <div class="col-6 row justify-content-between ">
+            <div class="col-6 row justify-content-center ">
                 {% for el in data.post %}
-                <div class="col-6">
+
                     <div class="card border-success mb-3 card--blur" >
                       <div class="card-header bg-transparent border-success">{{el.title}}</div>
                       <div class="card-body text-success">
-                        <h5 class="card-title">дата публикации</h5>
                         <p class="card-text">{{el.text}}</p>
                       </div>
-                      <div class="card-footer bg-transparent border-success">перейти на страницу</div>
                     </div>
-                </div>
+
                 {% endfor %}
             </div>
 
@@ -43,18 +44,20 @@
 
             <div class="col-5">
             <h2>About Me</h2>
-            <p>Здраствуйте ,меня зовут Руслан я студент.
-                В 2022 году поступил в Брянский Государственный Инженерно-Технический Университет (БГИТУ)
-                в Инженерно-экономический институт по направлению Программная инженерия сокращённо ПИ
-                на момент 13 декабря 2023 года я нахожусь на 2 курсе и пишу этот сайт в качестве своей курсовой работы.
-            </p>
+            <p>Привет! Меня зовут Руслан, и я студент Брянского Государственного Инженерно-технологического университета. Я учусь на программисто по направлению Прикладной информатики,
+                но уже сейчас я хочу начать свой путь в профессии и наработать опыт.
+                У меня есть много идей и энергии, чтобы развиваться и расти в своей карьере.
+                Я готов работать над любыми проектами, чтобы получить необходимые навыки и знания.
+                Буду рад сотрудничеству и возможностям для роста в вашей компании!</p>
             </div>
         </div>
     </div>
 
 
     <h2>Comment</h2>
-    <p>Feel free to leave a comment or feedback on my work. I appreciate any input that can help me improve and grow as a developer.</p>
+    <p>В дальнейшем я планирую улучшить свой сайт, добавить новые разделы и материалы, а
+        также расширить свое портфолио. Также я хочу продолжать учиться и развиваться
+        в области дизайна и разработки, чтобы стать еще более профессиональным специалистом.</p>
 
   </div>
 

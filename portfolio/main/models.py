@@ -1,5 +1,8 @@
 from django.db import models
+from django.urls import reverse
 import datetime
+from django.core.mail import send_mail
+from django.conf import settings
 
 class Post(models.Model):
     title = models.CharField(max_length=100)
@@ -8,10 +11,23 @@ class Post(models.Model):
     def __str__(self):
         return self.title
 
-class Comments(models.Model):
-    username = models.CharField('Пользователь',max_length=100)
-    comment = models.TextField('Комментарий')
-    date = models.DateTimeField('дата публикации', default=datetime.date.today())
 
+class Contact(models.Model):
+    name = models.CharField(max_length=100)
+    phone_number = models.CharField(max_length=20)
+    email = models.EmailField()
+    message = models.TextField()
 
+class  Work(models.Model):
+    title_work = models.CharField(max_length=50)
+    text_work = models.TextField(blank=True)
+    time_create = models.DateTimeField(auto_now_add=True)
+    time_update = models.DateTimeField(auto_now=True)
+    slug = models.SlugField(max_length=255, db_index=True, blank=True, default='', verbose_name='URL')
+
+    def __str__(self):
+        return self.title_work
+
+    def get_absolute_url(self):
+        return reverse('portfolio', kwargs={'work_slug': self.slug})
 # Create your models here.

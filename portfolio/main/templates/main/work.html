@@ -1,0 +1,13 @@
+{% extends 'main/baze.html' %}
+{% block title%}
+    {{title}}
+{% endblock %}
+{% block content%}
+<br>
+<h1>{{post.title_work}}</h1>
+<p>{{post.text_work}}</p>
+<p>{{post.time_create}}</p>
+<p>{{post.time_update}}</p>
+
+{% endblock %}
+{% include 'main/footer.html'%}

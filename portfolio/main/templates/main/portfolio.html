@@ -1,0 +1,20 @@
+{% extends 'main/baze.html' %}
+{% block title%}
+    {{title}}
+{% endblock %}
+{% block content%}
+    {%if posts %}
+<ul>
+
+    {% for p in posts %}
+    <li><h2> {{p.title_work}}</h2>
+        <p><a href="{{ p.get_absolute_url }}"> Посмотреть работу</a></p>
+    </li>
+    {% endfor %}
+
+</ul>
+    {% else %}
+<h1 class="text-center">Работ нет</h1>
+    {% endif %}
+{% endblock %}
+{% include 'main/footer.html'%}

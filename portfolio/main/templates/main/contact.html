@@ -1,0 +1,33 @@
+{% extends 'main/baze.html' %}
+{% block title%}
+    {{title}}
+{% endblock %}
+{% block content%}
+  <div class="container mt-5">
+    <h1>Связь со мной</h1>
+    <form id="comment-form" method="post" class="justify-content-between">
+      {% csrf_token %}
+        {{form.name}}<br>
+        {{form.phone_number}}<br>
+        {{form.email}}<br>
+        {{form.message}}<br>
+        <span>{{error}}</span>
+      <button type="submit" class="btn btn-success mb-4" >Добавить</button>
+    </form>
+
+    <div class="mt-4 container row justify-content-between">
+      <h1>Ссылки:</h1>
+
+            <h2><a href="https://vk.com/id292252866">ВКонтакте</a></h2>
+            <h2><a href="mailto:russianfox36@gmail.com">Электронная почта</a></h2>
+            <h2><a href="https://github.com/RussianFoxBryansk">GitHub</a></h2>
+
+
+    </div>
+  </div>
+
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@1.16.1/dist/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+{% endblock %}
+{% include 'main/footer.html'%}
