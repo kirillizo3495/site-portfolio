@@ -18,6 +18,9 @@ class Contact(models.Model):
     email = models.EmailField()
     message = models.TextField()
 
+    def __str__(self):
+        return self.name
+
 class  Work(models.Model):
     title_work = models.CharField(max_length=50)
     text_work = models.TextField(blank=True)
@@ -29,5 +32,5 @@ class  Work(models.Model):
         return self.title_work
 
     def get_absolute_url(self):
-        return reverse('portfolio', kwargs={'work_slug': self.slug})
+        return reverse('work', kwargs={'work_slug': self.slug})
 # Create your models here.

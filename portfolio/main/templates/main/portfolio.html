@@ -3,18 +3,27 @@
     {{title}}
 {% endblock %}
 {% block content%}
-    {%if posts %}
-<ul>
 
+<div class="container row justify-content-center">
+
+{%if posts %}
     {% for p in posts %}
-    <li><h2> {{p.title_work}}</h2>
-        <p><a href="{{ p.get_absolute_url }}"> Посмотреть работу</a></p>
-    </li>
+    <div class="col-4">
+    <div class="card border-success mb-3" style="max-width: 18rem;">
+      <div class="card-header bg-transparent border-success">{{p.time_create}}</div>
+      <div class="card-body text-success">
+        <h5 class="card-title">{{p.title_work}}</h5>
+        </div>
+      <div class="card-footer bg-transparent border-success"><a  href="{{ p.get_absolute_url }}"> Посмотреть работу</a></div>
+    </div>
+    </div>
     {% endfor %}
 
-</ul>
+
     {% else %}
 <h1 class="text-center">Работ нет</h1>
     {% endif %}
+
+    </div>
 {% endblock %}
 {% include 'main/footer.html'%}
