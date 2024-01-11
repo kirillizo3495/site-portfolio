@@ -8,4 +8,5 @@ urlpatterns = [
     path('contact/', views.contact, name='contact'),
     path('portfolio/', views.portfolio, name='portfolio'),
     path('work/<slug:work_slug>/', views.work, name='work'),
+    path('work_create/', views.work_create, name='work_create'),
 ]

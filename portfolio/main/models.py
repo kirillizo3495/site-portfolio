@@ -24,6 +24,8 @@ class Contact(models.Model):
 class  Work(models.Model):
     title_work = models.CharField(max_length=50)
     text_work = models.TextField(blank=True)
+    img_work = models.ImageField("Фото", upload_to='uplouds_model/%Y/%m/%d/', default=None,
+                                      blank=True, null=True,)
     time_create = models.DateTimeField(auto_now_add=True)
     time_update = models.DateTimeField(auto_now=True)
     slug = models.SlugField(max_length=255, db_index=True, blank=True, default='', verbose_name='URL')

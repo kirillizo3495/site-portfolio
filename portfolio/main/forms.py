@@ -1,6 +1,6 @@
-from django.forms import ModelForm, TextInput, DateTimeInput, Textarea, EmailInput
+from django.forms import ModelForm, TextInput, DateTimeInput, Textarea, EmailInput, forms
 
-from .models import Post, Contact
+from .models import Post, Contact, Work
 
 
 
@@ -46,5 +46,28 @@ class ContactForm(ModelForm):
             "message": Textarea(attrs={
                 'class': 'form-control',
                 'placeholder': "Содержимое вашего сообщения:",
+            }),
+        }
+
+
+class UploadFileForm(forms.Form):
+    file = forms.FileField(label='Файл')
+
+class AddForm(ModelForm):
+    class Meta:
+        model = Work
+        fields = {'title_work', 'text_work', 'img_work', 'slug'}
+        widgets = {
+            "title_work": TextInput(attrs={
+                'class': 'form-control',
+                'placeholder': "Введите заголовок:",
+            }),
+            "text_work": TextInput(attrs={
+                'class': 'form-control',
+                'placeholder': "Введите текст:",
+            }),
+            "slug": TextInput(attrs={
+                'class': 'form-control',
+                'placeholder': "Введите адрес страницы:",
             }),
         }
