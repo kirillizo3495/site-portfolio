@@ -16,18 +16,14 @@ Including another URLconf
 """
 from django.conf.urls.static import static
 from django.contrib import admin
-
 from django.urls import path, include
-
 from django.conf import settings
-
-
 from main.views import pageNotFound, ServerError, AccessBan, SearchError
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-
-    path('', include('main.urls'))
+    path('', include('main.urls')),
+    path('accounts/', include("django.contrib.auth.urls")),
 ]
 
 if settings.DEBUG:

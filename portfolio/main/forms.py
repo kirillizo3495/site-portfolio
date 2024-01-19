@@ -1,7 +1,7 @@
+from django.contrib.auth.forms import UserCreationForm
 from django.forms import ModelForm, TextInput, DateTimeInput, Textarea, EmailInput, forms
 
 from .models import Post, Contact, Work
-
 
 
 
@@ -71,3 +71,7 @@ class AddForm(ModelForm):
                 'placeholder': "Введите адрес страницы:",
             }),
         }
+
+
+
+

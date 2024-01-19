@@ -1,6 +1,9 @@
-
+from django.contrib.auth.decorators import login_required
 from django.http import HttpResponse, HttpResponseNotFound, Http404
 from django.shortcuts import render, redirect, get_object_or_404
+from django.urls import reverse_lazy
+from django.views.generic import FormView
+
 from .models import Post, Work
 from django.shortcuts import render, redirect
 from .forms import PostForm, ContactForm, UploadFileForm, AddForm
@@ -14,16 +17,18 @@ def pageNotFound(request,exception):
 def ServerError(request):
     return HttpResponseNotFound( '<h1>ошибка сервера<h1>')
 
+
 def AccessBan(request, exception):
     print(exception)
     return HttpResponseNotFound('<h1>нет доступа<h1>')
+
 
 def SearchError(request, exception):
     print(exception)
     return HttpResponseNotFound('Ошибка 400')
 
 
-
+@login_required
 def create(request):
     error = ''
     if request.method == 'POST':
@@ -51,6 +56,7 @@ def create(request):
     return render(request, 'main/create.html', data)
 
 
+@login_required
 def work_create(request):
     error = ''
     if request.method == 'POST':
@@ -69,9 +75,6 @@ def work_create(request):
     return render(request, 'main/work_create.html', data)
 
 
-
-
-
 def index(request) :
     post = Post.objects.order_by('-id')[:1]
 
@@ -81,6 +84,7 @@ def index(request) :
         'post': post,
     }
     return render(request, 'main/index.html', {'data': data})
+
 
 def contact(request) :
     error = ''
@@ -99,13 +103,15 @@ def contact(request) :
     }
     return render(request, 'main/contact.html',  data)
 
+
 def about(request) :
-    post = Post.objects.order_by('-id')[:8]
+    post = Work.objects.order_by('-id')[:8]
     data = {
         'title': 'Про нас',
         'post': post,
     }
-    return render(request, 'main/about.html', {'data': data})
+    return render(request, 'main/about.html',  data)
+
 
 def portfolio(request):
     posts = Work.objects.all()
@@ -114,9 +120,18 @@ def portfolio(request):
             }
     return render(request, 'main/portfolio.html', data)
 
+
 def work(request, work_slug):
     post = get_object_or_404(Work, slug=work_slug)
     data = {'title': 'Страница с моей работой',
             'post': post,
             }
     return render(request, 'main/work.html', data)
+
+
+@login_required
+def profile_view(request):
+    return render(request, 'main/profile.html')
+
+
+

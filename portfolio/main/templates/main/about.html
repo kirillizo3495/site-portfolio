@@ -54,22 +54,27 @@
         <div class="container">
             <h2 class="title text-center">Мои работы</h2>
             <div class="row">
-                {% if data.post%}
-                {% for el in data.post%}
-                <div class="col-3">
-                    <div class="card bg-light-l mb-3">
-                      <img src="/static/main/img/img_2.png" class="card-img-top" alt="...">
-                      <div class="card-body">
-                        <h5 class="card-title">{{el.title}}</h5>
-                        <p class="card-text">{{el.text}}</p>
-                        <p class="card-text"><small class="text-body-secondary">{{el.date}}</small></p>
-                      </div>
-                    </div>
-                </div>
-                {% endfor %}
+               {% if post %}
+                    {% for el in post %}
+                        <div class="col-3">
+                            <div class="card bg-light-l mb-3">
+                                {% if el.img_work %}
+                                    <img src="{{ el.img_work.url }}" class="card-img-top" alt="...">
+                                {% else %}
+                                    <img src="/static/main/img/img_2.png" class="card-img-top" alt="...">
+                                {% endif %}
+                                <div class="card-body">
+                                    <h5 class="card-title">{{ el.title_work }}</h5>
+                                    <p class="card-text">{{ el.time_update }}</p>
+                                    <p class="card-text"><small class="text-body-secondary">{{ el.date }}</small></p>
+                                </div>
+                            </div>
+                        </div>
+                    {% endfor %}
                 {% else %}
-                <h2 class="mt-5">Работ нет</h2>
+                    <h2 class="mt-5">Работ нет</h2>
                 {% endif %}
+
             </div>
         </div>
 
