@@ -9,8 +9,10 @@
                 Спасибо что ознакомились с моим сайтом. Весь код находится на
                 <a href="https://github.com/RussianFoxBryansk/site-portfolio">GitHub</a>
                 {% if user.is_staff %}
-                <a href="{%url 'create'%}">.</a>
-                <a href="{%url 'work_create'%}">.</a>
+                <div class="btn-group">
+                      <a  class="btn btn-success active" href="{%url 'create'%}">create</a>
+                      <a class="btn btn-success" href="{%url 'work_create'%}">work_create</a>
+                    </div>
                 {% endif %}
             </p>
         </div>
