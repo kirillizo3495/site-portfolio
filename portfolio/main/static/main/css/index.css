@@ -47,8 +47,8 @@ body {
     height: 100%;
 }
 body{
-    background-image: url("/static/main/img/1.jpg");
-    background-color: rgb(138, 136, 136);
+    background-image: url("/static/main/img/f1.jpg");
+    background-color: rgb(0, 33, 55);
     background-repeat: no-repeat;
     background-size: cover;
     background-blend-mode: multiply;
@@ -56,13 +56,13 @@ body{
 
 }
 p,h1,h2:not(.card-text){
-    color: rgb(29, 248, 9);
-    text-shadow: 0 0 5px rgb(230, 3, 3);
+    color: rgb(180, 198, 222);
+    text-shadow: 0 0 5px rgb(111, 146, 191);
 }
 h1,h2:not(.card-text){
-    color: rgb(206, 193, 8);
-    background: rgba(87, 77, 77, 0.527);
-    border-radius: 5px;
+    color: rgb(180, 198, 222);
+    background: rgba(0, 0, 0, 0);
+    border-radius: 6px;
     padding: 5px;
 }
 nav{
@@ -70,24 +70,24 @@ nav{
     text-shadow: 0 0 5px rgb(230, 3, 3);
 }
 .nav-link{
-    color: rgb(124, 199, 12);
+    color: rgb(0, 64, 107);
 }
 .navbar-light{
-    background: rgba(151, 150, 150, 0.432);
+    background: rgba(0, 64, 107, 0.432);
 }
 .bg-light-l{
-    background: rgba(124, 199, 12, 0.8);
+    background: rgba(0,95, 158, 0);
 }
 .bg-light-l1{
-    background: rgba(91, 145, 10, 0.9);
+    background: rgba(0, 64, 107, 0.9);
     color: rgba(112, 112, 112, 1);
     border-color: rgba(112, 112, 112, 1);
 }
 .bg-light-l1:hover{
     background-color: rgba(112, 112, 112, 1);
-    color: rgba(91, 145, 10, 0.9);
+    color: rgba(0, 64, 107, 0.9);
     border-color: rgba(112, 112, 112, 1);
 }
 footer div a{
-    color: rgba(91, 145, 10, 0.9);
+    color: rgba(0, 64, 107, 1.5);
 }

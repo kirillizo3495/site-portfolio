@@ -6,4 +6,4 @@ admin.site.register(Contact)
 admin.site.register(Post)
 admin.site.register(Work)
 
-# Register your models here.
+# kirill kirill3456 izotovkirill54@gmail.com
