@@ -9,19 +9,19 @@
         </div>
         <div class="container justify-center">
             <div class=" row justify-content-center">
-            <div class=" col-0">
+            <div class="container">
             <h1 class="text-center mb-9">ABOUT ME</h1>
                 <p>Добро пожаловать на мою страницу портфолио! Здесь вы можете ознакомиться с
                 моими лучшими работами, а также узнать больше о моем опыте и навыках. Я с
                 нетерпением жду возможности сотрудничать с вами и помочь
                 вам воплотить ваши идеи в реальность. Давайте создавать вместе!
                 </p>
-                <div class="row mb-1" style="padding:5px; border-radius: 5px;">
-                    <div class="btn-group">
-                      <a href="{%url 'portfolio'%}" class="btn btn-success active" aria-current="page">Посмотреть портфолио</a>
+                </div>
+            <div class="col-3.5">
+                      <a href="{%url 'home'%}" class="btn btn-success" aria-current="page">Главная страница</a>
                       <a href="{%url 'contact'%}" class="btn btn-success">Связаться со мной</a>
                     </div>
-                </div>
+
 
 
             </div>
@@ -45,7 +45,7 @@
     </section>
     <section class="justify-center header-bg mt-5">
         <div class="container">
-            <h2 class="title text-center">Мои работы</h2>
+            <h2>Мои работы</h2>
             <div class="row">
                {% if post %}
                     {% for el in post %}

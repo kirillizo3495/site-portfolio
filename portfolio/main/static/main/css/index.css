@@ -57,17 +57,13 @@ body{
 }
 p,h1,h2:not(.card-text){
     color: rgb(180, 198, 222);
-    text-shadow: 0 0 5px rgb(111, 146, 191);
-}
-h1,h2:not(.card-text){
-    color: rgb(180, 198, 222);
     background: rgba(0, 0, 0, 0);
     border-radius: 6px;
     padding: 5px;
 }
 nav{
 
-    text-shadow: 0 0 5px rgb(230, 3, 3);
+    text-shadow: 0 0 5px rgb(0, 64, 107);
 }
 .nav-link{
     color: rgb(0, 64, 107);
@@ -88,6 +84,10 @@ nav{
     color: rgba(0, 64, 107, 0.9);
     border-color: rgba(112, 112, 112, 1);
 }
-footer div a{
-    color: rgba(0, 64, 107, 1.5);
+
+a:not(.card-text){
+    color: rgb(180, 198, 222);
+    background: rgba(0, 0, 0, 0);
+    border-radius: 6px;
+    padding: 5px;
 }
